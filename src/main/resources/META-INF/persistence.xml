@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+	
+	<persistence-unit name="papleuxJTA" transaction-type="JTA">
+	<jta-data-source>jdbc/bbbb</jta-data-source>
+		  
+		<class>be.helha.papleux.entities.Abonne</class>
+		<class>be.helha.papleux.entities.Adresse</class>
+		<class>be.helha.papleux.entities.Livre</class>
+		<class>be.helha.papleux.entities.Utilisateur</class>
+				
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+	
+	</persistence-unit>
+	
+	
+	
+	<persistence-unit name="papleux" transaction-type="RESOURCE_LOCAL">
+		  
+		<class>be.helha.lepape.entities.Abonne</class>
+		<class>be.helha.lepape.entities.Adresse</class>
+		<class>be.helha.lepape.entities.Livre</class>
+		<class>be.helha.lepape.entities.Utilisateur</class>
+				
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+	
+		<properties>
+		    <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+		    <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/dbabonnes2017"/>
+		  
+		    <property name="javax.persistence.jdbc.user" value="test"/>
+			<property name="javax.persistence.jdbc.password" value="test"/> 
+
+		</properties>
+	</persistence-unit>
+	
+</persistence>

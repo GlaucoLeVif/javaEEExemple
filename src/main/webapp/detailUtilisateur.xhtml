@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+	<h:head>
+		<title>Détail d'un utilisateur</title>
+	</h:head>
+	
+	<h:body>
+	
+		<h:dataTable value="#{nextControl.getUser()}" var="user"
+    			styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row"
+    		>
+
+    		<h:column>
+    			<f:facet name="header">Id</f:facet>#{user.id}
+    		</h:column>
+    		
+    		
+    		<h:column>
+    			<f:facet name="header">Login</f:facet>#{user.login}
+    		</h:column>
+    	</h:dataTable>
+    	<br/>
+    	<h:form>
+			<h:commandButton value="Retour" action="#{nextControl.doNext()}"></h:commandButton>
+		</h:form>
+	</h:body>
+	
+</html>

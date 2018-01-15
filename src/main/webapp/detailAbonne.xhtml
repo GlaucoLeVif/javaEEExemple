@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+	<h:head>
+		<title>Détail d'un abonné</title>
+	</h:head>
+	
+	<h:body>
+	
+		<h:dataTable value="#{nextControl.getUser()}" var="user"
+    			styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row"
+    		>
+
+    		<h:column>
+    			<f:facet name="header">Id</f:facet>
+    			#{user.id}
+    		</h:column>
+    		<h:column>
+    			<f:facet name="header">Login</f:facet>
+    			#{user.login}
+    		</h:column>
+    		<h:column>
+    			<f:facet name="header">Nom</f:facet>
+    			#{user.nom}
+    		</h:column>
+    	</h:dataTable>
+
+    	<p><b>Adresse</b></p>
+    
+    	<h:dataTable value="#{nextControl.getUser()}" var="user"
+    			styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row"
+    		>
+
+    		<h:column>
+    			<f:facet name="header">Rue</f:facet>
+    			#{user.domicile.rue}
+    		</h:column>
+    		<h:column>
+    			<f:facet name="header">Numéro</f:facet>
+    			#{user.domicile.numero}
+    		</h:column>
+    		<h:column>
+    			<f:facet name="header">Code Postal</f:facet>
+    			#{user.domicile.codePostal}
+    		</h:column>
+    		<h:column>
+    			<f:facet name="header">Ville</f:facet>
+    			#{user.domicile.ville}
+    		</h:column>
+    	</h:dataTable>    	
+    	<h:form>
+			<h:commandButton value="Retour" action="#{nextControl.doNext()}"></h:commandButton>
+		</h:form>
+	</h:body>
+	
+</html>

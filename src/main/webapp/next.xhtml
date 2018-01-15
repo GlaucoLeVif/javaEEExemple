@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+	<h:head>
+		<title>next WebApp</title>
+	</h:head>
+	
+	<h:body>
+		<br/>
+		
+		<h:dataTable value="#{utilisateurControl.doList()}" var="user"
+    			styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row"
+    		>
+
+    		<h:column>
+    			<f:facet name="header">ID</f:facet>
+    			<h:outputLabel value="#{user.id}"></h:outputLabel>
+    		</h:column>
+    			
+    		<h:column>
+    			<f:facet name="header">LOGIN</f:facet>
+    			<h:outputLabel value="#{user.login}"></h:outputLabel>
+    		</h:column>
+    		<h:column>
+    			<h:form>
+    				<h:commandButton value="Afficher" action="#{nextControl.doDetail(user)}"></h:commandButton>
+    			</h:form>
+    		</h:column>
+    	</h:dataTable>
+    	<br/><br/>
+    	<h:head>AJOUT D'UN UTILISATEUR</h:head>
+    	<h:form>
+    		login: 
+    		<h:inputText value="#{utilisateurControl.loginUt}"></h:inputText><br/>
+    		mdp:
+    		<h:inputText value="#{utilisateurControl.passwordUt}"></h:inputText><br/>
+    		<h:commandButton value="Ajouter" action="#{utilisateurControl.createUser()}"></h:commandButton>
+    	</h:form>
+    	<br/><br/>
+    	<h:head>AJOUT D'UN ABONNE</h:head>
+    	<h:form>
+    		login:
+    		<h:inputText value="#{utilisateurControl.loginAb}"></h:inputText><br/>
+    		mdp:
+    		<h:inputText value="#{utilisateurControl.passwordAb}"></h:inputText><br/>
+    		nom:
+    		<h:inputText value="#{utilisateurControl.nom}"></h:inputText><br/>
+    		rue:
+    		<h:inputText value="#{utilisateurControl.rue}"></h:inputText><br/>
+    		numero:
+    		<h:inputText value="#{utilisateurControl.numero}"></h:inputText><br/>
+    		codePostal:
+    		<h:inputText value="#{utilisateurControl.codePostal}"></h:inputText><br/>
+    		ville:
+    		<h:inputText value="#{utilisateurControl.ville}"></h:inputText><br/>
+    		<h:commandButton value="Ajouter" action="#{utilisateurControl.createAbonne()}"></h:commandButton>
+    	</h:form>
+	</h:body>
+</html>
